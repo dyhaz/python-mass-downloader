@@ -2,7 +2,7 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-import urllib
+import urllib.request
 import os
 
 
@@ -10,10 +10,10 @@ def download(url, prefix, files):
     file_save_dir = 'files/'
     chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v',
              'w', 'x', 'y', 'z']
-    for offset in range(files / len(chars)):
+    for offset in range(int(files / len(chars))):
         for char in chars:
             filename = prefix + str(chars[offset] + char)
-            imob = urllib.urlopen(url + filename)
+            imob = urllib.request.urlopen(url + filename)
             print(f"Downloading {filename}\n")
             # read file and save
             if not os.path.exists(file_save_dir + filename):
