@@ -14,6 +14,7 @@ def download(url, prefix, files):
         for char in chars:
             filename = prefix + str(chars[offset] + char)
             imob = urllib.urlopen(url + filename)
+            print(f"Downloading {filename}\n")
             # read file and save
             if not os.path.exists(file_save_dir + filename):
                 f = open(file_save_dir + filename, "wb")
